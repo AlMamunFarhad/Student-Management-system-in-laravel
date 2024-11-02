@@ -23,11 +23,20 @@
                 <td scope="col">{{ $student->name }}</td>
                 <td scope="col">{{ $student->address }}</td>
                 <td scope="col">{{ $student->phone }}</td>
-                <td scope="col">
-                    <a href="{{ route('students.edit', $student->id) }}" class="btn"><i class="fa-solid fa-pen"
-                            style="font-size: 20px; color: #3e64ff"></i></a>
-                    <a href="" class="btn ms-2"><i class="fa-regular fa-trash-can"
-                            style="font-size: 20px; color: #dc3545"></i></a>
+                <td scope="col d-flex align-items-center">
+                    <a href="{{ route('students.show', $student->id) }}" class="btn d-inline-flex align-items-center me-2"><i
+                            class="fa-solid fa-eye" style="font-size: 20px; color: #5d5d5e"></i></a>
+                    
+                            <a href="{{ route('students.edit', $student->id) }}"
+                        class="btn d-inline-flex align-items-center me-2"><i class="fa-solid fa-pen"
+                            style="font-size: 20px; color: #5d5d5e"></i></a>
+
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn ms-2 d-inline-flex align-items-center"><i
+                                class="fa-regular fa-trash-can" style="font-size: 20px; color: #dc3545"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach

@@ -9,10 +9,10 @@
         <div class="col-md-6">
             <div>
                 @if (session('success'))
-                       <p style="background: #d4edda; text-align: center">{{session('success')}}</p>
+                    <p style="background: #d4edda; text-align: center">{{ session('success') }}</p>
                 @endif
-             </div>
-            <form action="{{route('students.store')}}" method="POST" class="card pt-5 pb-4 px-4">
+            </div>
+            <form action="{{ route('students.store') }}" method="POST" class="card pt-5 pb-4 px-4">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="name">Name</label>
@@ -56,9 +56,9 @@
                 </div>
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <div class="mt-4">
-                    <a href="{{route('home')}}">&#8592;	Back</a>
+                    <a href="{{ route('home') }}">&#8592; Back</a>
                 </div>
-               
+
             </form>
         </div>
     @endsection

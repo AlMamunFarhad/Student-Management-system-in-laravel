@@ -53,7 +53,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        // return view("student.update");
+        $student_id = Student::findOrFail($id);
+        return view("students.show", compact('student_id'));
     }
 
     /**
@@ -94,6 +95,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $find_id = Student::findOrFail($id);
+        $find_id->delete();
+        return redirect()->route('students.index')->with('success','User deleted successfully.');
     }
 }

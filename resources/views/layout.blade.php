@@ -27,7 +27,7 @@
                     <a href="{{ route('home') }}"><span class="fa fa-home"></span> Home</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-user"></span> Student</a>
+                    <a href="{{route('home')}}"><span class="fa fa-user"></span> Students</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-sticky-note"></span> Teacher</a>
