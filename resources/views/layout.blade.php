@@ -15,6 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom_styles.css') }}">
+    @stack('style')
 </head>
 
 <body>

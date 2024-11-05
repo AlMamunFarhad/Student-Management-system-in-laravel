@@ -37,15 +37,23 @@ class StudentController extends Controller
             "email" => "required|email",
             "address" => "required",
             "phone" => "required|numeric",
+            "photo" => "required|image|mimes:jpg,png,jpeg|max:20000"
         ]);
+
+        $image = $request->file('photo');
+        $ext = $image->getClientOriginalExtension();
+        $imageName = time() . "." . $ext;
+        $image->move(public_path() . '/images/', $imageName);
+
         $student = Student::create([
             "name" => $request->name,
             "email" => $request->email,
             "address" => $request->address,
-            "phone" => $request->phone
+            "phone" => $request->phone,
+            "photo" => $imageName
         ]);
 
-        return redirect()->route("students.create")->with("success", "Student record successfully added");
+        return redirect()->route("students.create")->with("success", "Student record successfully Created.");
     }
 
     /**
@@ -53,8 +61,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        $student_id = Student::findOrFail($id);
-        return view("students.show", compact('student_id'));
+        $found_student = Student::findOrFail($id);
+        return view("students.show", compact('found_student'));
     }
 
     /**
@@ -71,22 +79,44 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+
+        // Validate করা
         $validate = $request->validate([
             "name" => "required",
             "email" => "required|email",
             "address" => "required",
             "phone" => "required|numeric",
+            "photo" => "nullable|image|mimes:jpg,png,jpeg|max:20000"
         ]);
 
         $student = Student::findOrFail($id);
-        $student->update([
+
+        $data = [
             "name" => $request->name,
             "email" => $request->email,
             "address" => $request->address,
             "phone" => $request->phone
-        ]);
+        ];
 
+        if ($request->hasFile('photo')) {
+            $image_path = public_path("images/") . $student->photo;
 
+            if (file_exists($image_path)) {
+                unlink($image_path);
+            }
+
+            $request_img = $request->file('photo');
+            $img_ext = $request_img->getClientOriginalExtension();
+            $rename_img = time() . "." . $img_ext;
+
+            $request_img->move(public_path("images"), $rename_img);
+
+            $data['photo'] = $rename_img;
+        }
+
+        $student->update($data);
+        
         return back()->with("success", "Updated student record successfully");
     }
 
@@ -97,6 +127,6 @@ class StudentController extends Controller
     {
         $find_id = Student::findOrFail($id);
         $find_id->delete();
-        return redirect()->route('students.index')->with('success','User deleted successfully.');
+        return redirect()->route('students.index')->with('success', 'User deleted successfully.');
     }
 }

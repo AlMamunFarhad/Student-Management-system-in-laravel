@@ -11,6 +11,7 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
+            <th scope="col">Photo</th>
             <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">Phone</th>
@@ -20,14 +21,18 @@
     <tbody>
         @foreach ($students as $student)
             <tr>
+                <td scope="col">
+                    <img src="{{asset("/images/{$student->photo}")}}" alt="" width="80" class="rounded">
+                </td>
                 <td scope="col">{{ $student->name }}</td>
                 <td scope="col">{{ $student->address }}</td>
                 <td scope="col">{{ $student->phone }}</td>
                 <td scope="col d-flex align-items-center">
-                    <a href="{{ route('students.show', $student->id) }}" class="btn d-inline-flex align-items-center me-2"><i
-                            class="fa-solid fa-eye" style="font-size: 20px; color: #5d5d5e"></i></a>
-                    
-                            <a href="{{ route('students.edit', $student->id) }}"
+                    <a href="{{ route('students.show', $student->id) }}"
+                        class="btn d-inline-flex align-items-center me-2"><i class="fa-solid fa-eye"
+                            style="font-size: 20px; color: #5d5d5e"></i></a>
+
+                    <a href="{{ route('students.edit', $student->id) }}"
                         class="btn d-inline-flex align-items-center me-2"><i class="fa-solid fa-pen"
                             style="font-size: 20px; color: #5d5d5e"></i></a>
 
@@ -42,5 +47,4 @@
         @endforeach
     </tbody>
 </table>
-
 @endsection

@@ -12,7 +12,7 @@
                     <p style="background: #d4edda; text-align: center">{{ session('success') }}</p>
                 @endif
             </div>
-            <form action="{{ route('students.store') }}" method="POST" class="card pt-5 pb-4 px-4">
+            <form action="{{ route('students.store') }}" method="POST" class="card pt-5 pb-4 px-4" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="name">Name</label>
@@ -54,6 +54,14 @@
                         </div>
                     @enderror
                 </div>
+                <div class="form-group mb-4">
+                    <input type="file" class="form-control" name="photo">
+                    @error('photo')
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <div class="mt-4">
                     <a href="{{ route('home') }}">&#8592; Back</a>
@@ -62,3 +70,5 @@
             </form>
         </div>
     @endsection
+
+   

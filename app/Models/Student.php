@@ -13,6 +13,7 @@ class Student extends Model
         "name",
         "email",
         "address",
-        "phone"
+        "phone",
+        "photo"
     ];
 }
