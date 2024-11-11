@@ -15,6 +15,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom_styles.css') }}">
+    <script src="https://cdn.tiny.cloud/1/6mrt72tqqmmcmnsbz4xnxi5uta47nhgotwbcaf88a5jpljst/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
     @stack('style')
 </head>
 
@@ -24,20 +26,17 @@
         <nav id="sidebar" class="active">
             <h1><a href="{{ route('home') }}" class="logo">F</a></h1>
             <ul class="list-unstyled components mb-5">
-                <li class="active">
-                    <a href="{{ route('home') }}"><span class="fa fa-home"></span> Home</a>
-                </li>
                 <li>
                     <a href="{{route('home')}}"><span class="fa fa-user"></span> Students</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sticky-note"></span> Teacher</a>
+                    <a href="{{route('techer')}}"><span class="fa fa-sticky-note"></span> Teacher</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-cogs"></span> Courses</a>
+                    <a href="{{route('course')}}"><span class="fa-solid fa-graduation-cap"></span> Courses</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-cogs"></span> Enrollment</a>
+                    <a href="{{route('enrollment')}}"><span class="fa fa-cogs"></span> Enrollment</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-paper-plane"></span> Payment</a>
@@ -46,7 +45,7 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-3">
+        <div id="content" class="p-4">
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -61,29 +60,13 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <form class="d-flex ms-auto" role="search">
-                                <div class="d-flex justify-content-center h-100">
-                                    <div class="search">
-                                        <input type="text" class="search-input" placeholder="search..."
-                                            name="">
-                                        <a href="#" class="search-icon">
-                                            Search
-                                        </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </ul>
-                    </div>
+                   @yield('search')
                 </div>
             </nav>
 
             <main>
-                <div class="container">
                     @yield('title')
                     @yield('content')
-                </div>
             </main>
         </div>
     </div>
@@ -92,6 +75,8 @@
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    @stack('scripts')
 
 </body>
 

@@ -1,37 +1,36 @@
 @extends('layout')
 
 @section('title')
-    <h4 class="text-center mb-5">View student</h4>
+    <h4 class="text-center mb-5">View techer</h4>
 @endsection
 
 @section('content')
-    <div class="row add-student shadow-sm">
-        <div class="col-md-4">
-            <img src="{{ asset("/images/{$found_student->photo}") }}" alt="" class="img-fluid rounded-lg"
-                width="310">
-        </div>
+    <div class="row add-student shadow-sm justify-content-center">
         <div class="col-md-8">
             <table class="table table-striped table-hover">
                 <tr>
                     <th style="color: #ff5722"><i class="fa-solid fa-user"></i> Name</th>
-                    <td>{{ $found_student->name }}</td>
+                    <td>{{ $techer_id->name }}</td>
                 </tr>
                 <tr>
                     <th style="color: #9d60ff"><i class="fa-solid fa-phone"></i> Phone</th>
-                    <td>{{ $found_student->phone }}</td>
+                    <td>{{ $techer_id->phone }}</td>
                 </tr>
                 <tr>
                     <th style="color: #ff48a4"><i class="fa-solid fa-envelope"></i> Email</th>
-                    <td><a href="">{{ $found_student->email }}</a></td>
+                    <td><a href="">{{ $techer_id->email }}</a></td>
                 </tr>
                 <tr>
                     <th style="color: #5bbd2a"><i class="fa-solid fa-location-dot"></i> Address</th>
-                    <td>{{ $found_student->address }}</td>
+                    <td>{{ $techer_id->address }}</td>
+                </tr>
+                <tr>
+                    <th style="color: #9d60ff"><i class="fa-solid fa-location-dot"></i> Address</th>
+                    <td>{{ $techer_id->course_techer }}</td>
                 </tr>
             </table>
             <div class="back-btn float-right">
-                <a href="{{ route('home') }}" class="text-primary rounded"
-                    style="background: #ececec; padding: 10px;">&#8592; Back</a>
+                <a href="{{ route('techer') }}" class="text-primary rounded">&#8592; Back</a>
             </div>
         </div>
     </div>

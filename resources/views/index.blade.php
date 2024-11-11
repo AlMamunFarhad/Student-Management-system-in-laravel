@@ -1,10 +1,29 @@
 @extends('layout')
 
-@section('content')
-
 @section('title')
-    <h1 class="text-center all-students">All Students</h1>
+<div class="container-fluid">
+    <h1>All Students</h1>
+</div>
 @endsection
+@section('search')
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav ml-auto">
+        <form class="d-flex ms-auto" role="search">
+            <div class="d-flex justify-content-center h-100">
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="search..."
+                        name="">
+                    <a href="#" class="search-icon">
+                        Search
+                    </a>
+                </div>
+            </div>
+        </form>
+    </ul>
+</div>
+@endsection
+@section('content')
+<div class="container-fluid">
 <div class="mb-3">
     <a href="{{ route('students.create') }}" class="btn btn-primary">Add new</a>
 </div>
@@ -47,4 +66,5 @@
         @endforeach
     </tbody>
 </table>
+</div>
 @endsection

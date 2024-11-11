@@ -81,7 +81,7 @@ class StudentController extends Controller
     {
 
 
-        // Validate করা
+        // Validate 
         $validate = $request->validate([
             "name" => "required",
             "email" => "required|email",
@@ -116,7 +116,7 @@ class StudentController extends Controller
         }
 
         $student->update($data);
-        
+
         return back()->with("success", "Updated student record successfully");
     }
 
