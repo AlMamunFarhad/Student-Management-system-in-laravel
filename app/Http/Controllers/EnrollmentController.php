@@ -45,6 +45,8 @@ class EnrollmentController extends Controller
             "join_date" => $request->date
         ]);
 
+        $enrollment->payment()->create();
+
         return redirect()->route("enrollment.create")->with("success", "Enrollment added successfully.");
     }
 

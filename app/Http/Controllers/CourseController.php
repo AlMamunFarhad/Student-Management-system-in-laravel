@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('students.courses', compact('courses'));
+        return view('courses.courses', compact('courses'));
     }
 
     /**
@@ -21,7 +21,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('students.create_course');
+        return view('courses.create_course');
     }
 
     /**
@@ -29,14 +29,14 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $techers = $request->validate([
+        $courses = $request->validate([
             "course_name" => "required",
             "duration" => "required",
             "summary" => "required",
             "description" => "required",
         ]);
 
-        $techers =  Course::create([
+        $courses =  Course::create([
             "course_name" => $request->course_name,
             "duration" => $request->duration,
             "summary" => $request->summary,

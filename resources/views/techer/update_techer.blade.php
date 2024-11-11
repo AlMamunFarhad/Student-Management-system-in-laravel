@@ -56,6 +56,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-4">
+                    <label for="courseTecher">Course techer</label>
                     <input type="text" class="form-control" name="course_techer" value="{{$techer->course_techer}}">
                     @error('course_techer')
                         <div class="text-danger">

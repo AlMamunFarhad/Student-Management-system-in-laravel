@@ -6,9 +6,9 @@
 
 @section('content')
     <div class="row add-student shadow-sm">
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex justify-content-center">
             <img src="{{ asset("/images/{$found_student->photo}") }}" alt="" class="img-fluid rounded-lg"
-                width="310">
+                width="500">
         </div>
         <div class="col-md-8">
             <table class="table table-striped table-hover">

@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TecherController;
-use App\Models\Enrollment;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,3 +17,4 @@ Route::resource('/course', CourseController::class);
 Route::get('/course', [CourseController::class, 'index'])->name('course');
 Route::resource('/enrollment',EnrollmentController::class);
 Route::get('/enrollment', [EnrollmentController::class, 'index'])->name('enrollment');
+Route::get('/payments', [PaymentController::class, 'index'])->name('payments');

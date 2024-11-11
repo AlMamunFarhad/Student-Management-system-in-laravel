@@ -40,7 +40,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn ms-2 d-inline-flex align-items-center"><i
-                                class="fa-regular fa-trash-can" style="font-size: 20px; color: #dc3545"></i></button>
+                                class="fa-regular fa-trash-can" style="font-size: 20px;"></i></button>
                     </form>
                 </td>
             </tr>

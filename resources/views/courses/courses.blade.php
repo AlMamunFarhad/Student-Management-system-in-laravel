@@ -9,7 +9,7 @@
 @section('content')
     <div class="container">
     <div class="course-btn mb-3">
-        <a href="{{ route('course.create') }}" class="btn btn-primary">Add new</a>
+        <a href="{{ route('course.create') }}" class="btn btn-primary">Add course</a>
     </div>
     <div class="row gap-4 mb-5 text-center">
         @foreach ($courses as $course)

@@ -36,10 +36,10 @@
                     <a href="{{route('course')}}"><span class="fa-solid fa-graduation-cap"></span> Courses</a>
                 </li>
                 <li>
-                    <a href="{{route('enrollment')}}"><span class="fa fa-cogs"></span> Enrollment</a>
+                    <a href="{{route('enrollment')}}"><span class="fa fa-cogs"></span> Enrollments</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-paper-plane"></span> Payment</a>
+                    <a href="{{route('payments')}}"><span class="fa fa-paper-plane"></span> Payments</a>
                 </li>
             </ul>
         </nav>

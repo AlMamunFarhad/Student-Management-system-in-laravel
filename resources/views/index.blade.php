@@ -2,24 +2,7 @@
 
 @section('title')
 <div class="container-fluid">
-    <h1>All Students</h1>
-</div>
-@endsection
-@section('search')
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav ml-auto">
-        <form class="d-flex ms-auto" role="search">
-            <div class="d-flex justify-content-center h-100">
-                <div class="search">
-                    <input type="text" class="search-input" placeholder="search..."
-                        name="">
-                    <a href="#" class="search-icon">
-                        Search
-                    </a>
-                </div>
-            </div>
-        </form>
-    </ul>
+    <h1>Students</h1>
 </div>
 @endsection
 @section('content')
@@ -41,7 +24,7 @@
         @foreach ($students as $student)
             <tr>
                 <td scope="col">
-                    <img src="{{asset("/images/{$student->photo}")}}" alt="" width="80" class="rounded">
+                    <img src="{{asset("/images/{$student->photo}")}}" alt="" width="100" class="rounded">
                 </td>
                 <td scope="col">{{ $student->name }}</td>
                 <td scope="col">{{ $student->address }}</td>
@@ -59,7 +42,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn ms-2 d-inline-flex align-items-center"><i
-                                class="fa-regular fa-trash-can" style="font-size: 20px; color: #dc3545"></i></button>
+                                class="fa-regular fa-trash-can" style="font-size: 20px;"></i></button>
                     </form>
                 </td>
             </tr>

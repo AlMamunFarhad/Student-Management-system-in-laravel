@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-md-6">
             <div>
                 @if (session('success'))
@@ -15,6 +15,7 @@
             <form action="{{ route('course.store') }}" method="POST" class="card pt-5 pb-4 px-4" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
+                    <label for="CourseName">Course Name</label>
                     <input type="text" class="form-control" name="course_name"
                         placeholder="Course name" value="{{old('coursr_name')}}">
                     @error('course_name')
@@ -24,6 +25,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
+                    <label for="duration">Duration</label>
                     <input type="text" class="form-control" name="duration"
                         placeholder="Duration" value="{{old('duration')}}">
                     @error('duration')
@@ -33,6 +35,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
+                    <label for="summary">Summary</label>
                     <input type="text" class="form-control" name="summary"
                         placeholder="Summary" value="{{old('summary')}}">
                     @error('summary')
@@ -42,7 +45,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-4">
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" class="form-control" value="{{old('description')}}"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="5" placeholder="Description" class="form-control" value="{{old('description')}}"></textarea>
                     @error('description')
                         <div class="text-danger">
                             {{ $message }}
@@ -62,6 +65,7 @@
     <script>
         tinymce.init({
           selector: 'textarea',
+          height: 300,
           plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
           toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });

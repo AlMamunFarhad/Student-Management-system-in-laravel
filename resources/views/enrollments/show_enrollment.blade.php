@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="row add-student shadow-sm justify-content-center">
-        <div class="col-md-8">
-            <table class="table table-striped table-hover">
+        <div class="col-md-8 card p-4">
+            <table class="table table-striped table-hover" style="min-width: 100%;">
                 <tr>
                     <th style="color: #ff5722"><i class="fa-solid fa-user"></i>Student Name</th>
                     <td>{{ $show_enroll->student_name }}</td>
@@ -21,11 +21,11 @@
                     <td><a href="">{{ $show_enroll->enroll_no }}</a></td>
                 </tr>
                 <tr>
-                    <th style="color: #5bbd2a"><i class="fa-solid fa-location-dot"></i> Fee</th>
+                    <th style="color: #5bbd2a"><i class="fa-solid fa-money-check"></i> Fee</th>
                     <td>{{ $show_enroll->fee }}</td>
                 </tr>
                 <tr>
-                    <th style="color: #9d60ff"><i class="fa-solid fa-location-dot"></i> Date</th>
+                    <th style="color: #9d60ff"><i class="fa-solid fa-calendar"></i> Date</th>
                     <td>{{ $show_enroll->join_date }}</td>
                 </tr>
             </table>

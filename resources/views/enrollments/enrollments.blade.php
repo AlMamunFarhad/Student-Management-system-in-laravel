@@ -16,6 +16,7 @@
             <th scope="col">Enrollment No</th>
             <th scope="col">Student Name</th>
             <th scope="col">Course Name</th>
+            <th scope="col">Fee</th>
             <th scope="col">Join Date</th>
             <th scope="col">Actions</th>
         </tr>
@@ -26,6 +27,7 @@
                 <td scope="col">{{ $enrollment->enroll_no }}</td>
                 <td scope="col">{{ $enrollment->student_name }}</td>
                 <td scope="col">{{ $enrollment->course_name }}</td>
+                <td scope="col">{{ $enrollment->fee }}</td>
                 <td scope="col">{{ $enrollment->join_date }}</td>
                 <td scope="col d-flex align-items-center">
                     <a href="{{ route('enrollment.show', $enrollment->id) }}"

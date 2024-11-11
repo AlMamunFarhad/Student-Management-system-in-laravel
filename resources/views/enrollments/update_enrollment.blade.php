@@ -36,6 +36,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
+                    <label for="enrollNo">Enroll no</label>
                     <input type="text" class="form-control" name="enroll_no"
                         placeholder="Enroll no" value="{{ $enrollment->enroll_no }}">
                     @error('enroll_no')
@@ -45,6 +46,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3">
+                    <label for="fee">Fee</label>
                     <input type="text" class="form-control" name="fee"
                         placeholder="Fee" value="{{ $enrollment->fee }}">
                     @error('fee')
@@ -54,6 +56,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-4">
+                    <label for="data">Date</label>
                     <input type="text" class="form-control" name="date"
                         placeholder="Date" value="{{ $enrollment->join_date }}">
                     @error('date')
